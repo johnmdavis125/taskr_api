@@ -5,9 +5,11 @@ const Task = require('../models/task.js');
 // Index
 
 router.get('/', (req, res) => {
-    console.log('you hit the index page'); 
+    Task.find({}, (error, allTasks) => {
+        error ? res.status(404).json(error) :
+        res.status(200).json(allTasks);
+    });
 });
-
 
 // New
 
