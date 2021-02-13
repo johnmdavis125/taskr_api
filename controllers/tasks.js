@@ -22,6 +22,13 @@ router.delete('/:id', (req, res) => {
 });
 
 // Update
+router.put('/:id', (req, res) => {
+    Task.findByIdAndUpdate(req.params.id, req.body, { new: true },
+        (error, updatedTask) => {
+            error ? res.status(404).json(error) : 
+            res.status(200).json(updatedTask);
+        });
+    });
 
 // Create
 router.post('/', (req, res) => {
