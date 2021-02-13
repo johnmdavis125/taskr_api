@@ -14,6 +14,12 @@ router.get('/', (req, res) => {
 // New
 
 // Delete
+router.delete('/:id', (req, res) => {
+    Task.findByIdAndDelete(req.params.id, (error, task) => {
+        error ? res.status(404).json(error) :
+        res.status(200).json(task);
+    });
+});
 
 // Update
 
