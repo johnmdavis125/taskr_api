@@ -27,7 +27,7 @@ app.get('/', (req, res)=>{
 });
 
 // wire up controller
-app.use('/tasks', require('./controllers/tasks.js')); 
+app.use('/api/tasks', require('./controllers/tasks.js')); 
 
 
 
